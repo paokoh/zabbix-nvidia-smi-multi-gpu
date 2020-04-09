@@ -1,5 +1,5 @@
 # zabbix-nvidia-smi-multi-gpu
-该模板可以自动发现并监控多个Nvidia GPU（依赖nvidia-smi），暂只支持Linux。 
+该zabbix模板可以自动发现并监控多个Nvidia GPU（依赖nvidia-smi），暂只支持Linux。 
 
 ## 功能: 
 
