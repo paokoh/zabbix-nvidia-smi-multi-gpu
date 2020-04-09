@@ -23,15 +23,6 @@ And the graphs:
 
 This is essentially a multi-GPU rewrite of RichardKav's template, as found here: https://github.com/RichardKav/zabbix-nvidia-smi-integration/
 
-## On Windows:
-
-* Add the contents of the file `userparameter_nvidia-smi.conf.windows` to your zabbix_agentd.conf file.
-* The Windows script get_gpus_info.bat file should be put in C:\scripts\
-* It doesn't have any dependencies, other than having nvidia-smi.exe
-* Of course, it is possible to use other paths, but: 
-  * In case you change C:\scripts\, you need to update the "UserParameter=gpu.discovery" line in zabbix_agentd.conf
-  * In case you have installed nvidia-smi.exe in an alternate location, you need to update both the get_gpus_info.bat and the zabbix_agentd.conf
-
 ## On Linux: 
 
 The following UserParameters need to be added to the zabbix-agent configuration: 
