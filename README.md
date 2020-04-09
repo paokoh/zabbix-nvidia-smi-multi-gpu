@@ -1,30 +1,17 @@
 # zabbix-nvidia-smi-multi-gpu
-A zabbix template using nvidia-smi. Works with multiple GPUs on Windows and Linux. 
+该模板可以自动发现并监控多个Nvidia GPU（依赖nvidia-smi），暂只支持Linux。 
 
-## Features: 
+## 功能: 
 
-- low-level discovery of all the graphics cards
-- item prototypes for:
-  - fan speed
-  - total, free and used memory
-  - power draw in decaWatts (tens of Watts, so that it can fit in the graphs nicely)
-  - temperature
-  - utilization
-- a graph prototype having the fan speed, power draw and temperature in one graph
-- trigger prototypes set at different GPU temperatures
-- a batch script for low-level discovery on Windows
-- a BASH script for low-level discovery on Linux
+- 自动发现所有GPU
+- 监控项目:
+  - GPU型号
+  - GPU使用率
+  - 显存总量, 显存可用 和 已用显存
 
-Events caused by the triggers:
-![Triggers:](https://steemitimages.com/DQmNbgRSxa7LRbaaJszCdHbDEPM5wwCpKGUFJtibWEsBwTY/image.png)
+## Linux 系统: 
 
-And the graphs: 
-![Graphs](https://steemitimages.com/DQmPSwfNoERQ13wrR8YeqdjSfDJpAiECXKSMzUjwaoLYkaG/image.png)
+需要将用户自定义参数文件添加到zabbix: 
+* 拷贝文件 `linux_gpu_nvidia.conf` 到/etc/zabbix/zabbix_agentd.d/
 
-This is essentially a multi-GPU rewrite of RichardKav's template, as found here: https://github.com/RichardKav/zabbix-nvidia-smi-integration/
-
-## On Linux: 
-
-The following UserParameters need to be added to the zabbix-agent configuration: 
-* Add the contents of the file `userparameter_nvidia-smi.conf.linux` to your zabbix_agentd.conf file.
-* The get_gpus_info.sh file should be put in /etc/zabbix/scripts/ and made executable by running ```chmod +x get_gpus_info.sh```
+修改自 https://github.com/plambe/zabbix-nvidia-smi-multi-gpu ，改进为不需要使用sh脚本文件执行自动发现。
