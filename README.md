@@ -13,6 +13,7 @@
 
 需要将用户自定义参数文件添加到zabbix: 
 * 拷贝文件 `linux_gpu_nvidia.conf` 到/etc/zabbix/zabbix_agentd.d/
+* 重启zabbix_agent
 * 从zabbix界面上导入模板文件linux_gpu_nvidia_templates.xml
 
 修改自 https://github.com/plambe/zabbix-nvidia-smi-multi-gpu ，改进为不需要使用sh脚本文件执行自动发现。
